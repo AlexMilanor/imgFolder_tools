@@ -18,7 +18,7 @@ It just automates the act of opening, closing and moving files, but that's alrea
 
 # How to Use
 ---
-These are only ".py" files, so you need to have a Python compiler to run them.<br>
+These are only ".py" files, so you need to have a Python compiler to run them. Copy the code to the folder you want to use them on, and compile them there.<br>
 They are wroten in Python 3.7.2 and the non-default libraries used are:
 - matplotlib 3.0.2
 - numpy 1.16.2
