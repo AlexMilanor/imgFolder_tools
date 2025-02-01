@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 """
 Command Line Interface for running imgFolder tools.
 
