@@ -15,11 +15,11 @@ def view_choices(choices, title="Choices", color='cyan', disp='bold'):
 
 def run_label_command(imgpath):
 	tracker = FileTracker()
-	view_choices(tracker.get_labels(), title='Existing labels', disp='negative')
+	view_choices(tracker.get_all_labels(), title='Existing labels', disp='negative')
 
 	label = input("Label: ")
 
 	labeler = LabelControl(imgpath)
-	payload = labeler._set_label(label)
+	payload = labeler.set_label(label)
 
 	print(payload)
