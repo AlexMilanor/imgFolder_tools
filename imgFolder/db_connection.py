@@ -1,11 +1,15 @@
-
+import csv
 
 class DBConn:
     def __init__(self):
-        pass
+        self.file = "./db_prototype.csv"
 
     def query_files(self) -> dict:
-        return [
-            {"file":"file_1", "label":"label_1"},
-            {"file":"file_2", "label":"label_2"},
-        ]
+        with open(self.file, 'r') as csvfile:
+            reader = csv.DictReader(csvfile)
+
+            files_list = []
+            for row in reader:
+                files_list.append(row)
+        
+        return files_list
