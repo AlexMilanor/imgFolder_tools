@@ -4,7 +4,7 @@
 Command Line Interface for running imgFolder tools.
 
 author: Alexandre A. A. Almeida
-version: 0.1
+version: 0.0.1
 """
 
 from imgFolder import user_interface
