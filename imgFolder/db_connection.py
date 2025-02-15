@@ -3,7 +3,7 @@ from copy import copy
 
 class DBConn:
     def __init__(self):
-        self._file = "./db_prototype.csv"
+        self._file = "./data/db_prototype.csv"
         self._schema = ['file', 'label']
 
 
