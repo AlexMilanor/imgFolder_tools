@@ -1,0 +1,9 @@
+name: env_imgfolder
+dependencies:
+  - python=3.12
+  - pip
+  - conda-forge::ruamel.yaml
+  - pillow
+  - numpy
+  - matplotlib
+  - pytest
