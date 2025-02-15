@@ -1,6 +1,9 @@
-Tools to help organize an image folder.<br>
-
 # ImgFolder-Tools
+
+![Status Badge](https://img.shields.io/badge/status-nice-green?style=plastic)
+![Roadmap Badge](https://img.shields.io/badge/roadmap-non_existant-green?style=plastic)
+
+
 ---
 Since I love comics and drawing, I commonly save lots and lots of pictures in my images folder.<br>
 With time it gets really hard to keep track of them, as I end up with many duplicate images and it's often hard finding a specific image.
