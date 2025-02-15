@@ -1,6 +1,5 @@
 Tools to help organize an image folder.<br>
 
-Teste2
 # ImgFolder-Tools
 ---
 Since I love comics and drawing, I commonly save lots and lots of pictures in my images folder.<br>
@@ -27,13 +26,15 @@ They are wroten in Python 3.7.2 and the non-default libraries used are:
 
 # Roadmap
 ---
-Since this was a simple project that I did in a couple of hours and it was only to help me with something specific, it is missing lots of stuff. Also, I spent 90% of that time messing around and having fun with adding noise to images and checking for duplicates while reflecting what it meant for two images to be "duplicates". My concept of fun is kinda weird.<br>
-The main problems here are that:
-- The code structure leaves MUCH to be desired. Well, it actually doesn't exist.
-- Missing a requirements.txt file.
-- The code doesn't follow any practices for object oriented programming development. Sorry Uncle Bob.
-- It doesn't have documentation.
-- It doesn't have unit tests.
+Since this was a simple project and it was only to help me with something specific, it is missing lots of stuff. Also, I spent 90% of that time messing around and having fun with adding noise to images and checking for duplicates while reflecting what it meant for two images to be "duplicates". My concept of fun is kinda weird.<br>
 
-Ok, basically it have barely anything beyond a proof of concept. This is actually one of the reasons I'm putting it on github, to try and keep developing it while I learn!<br>
+The main problems here are that:
+- [x] The code structure leaves MUCH to be desired. (starting work on it).
+- [x] Missing a requirements.txt file (added environment.yml).
+- [ ] The code doesn't follow any practices for object oriented programming development. Sorry Uncle Bob. (I'm trying.)
+- [ ] It doesn't have documentation. (who needs it?)
+- [x] It doesn't have unit tests. (now it does)
+
+Ok, basically it have barely anything. This is actually one of the reasons I'm putting it on github, to try and keep developing it while I learn!<br>
+
 Besides, well, saving the code somewhere other than my computer folder hell.
