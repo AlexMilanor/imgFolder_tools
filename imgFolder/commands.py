@@ -1,25 +1,35 @@
 from imgFolder.controllers import LabelControl
-from imgFolder.tracking import FileTracker
 from imgFolder.utils import color_text
 
 def view_choices(choices, title="Choices", color='cyan', disp='bold'):
-	print(
-		color_text.design_text(
-			title, color=color, display=disp
-		)
-	)
-	for choice in choices:
-		print(color_text.design_text(f"- {choice}", display='bold'))
-	print("")
+    print("")
+    print(
+        color_text.design_text(
+            title, color=color, display=disp
+        )
+    )
+    for choice in choices:
+        print(color_text.design_text(f"- {choice}", display='bold'))
+    print("")
+
+
+def view_old_label(label):
+    print(
+        color_text.design_text(
+            f"Old label: ", color='red', display='bold'
+        ), f"{label}\n"
+    )
 
 
 def run_label_command(imgpath):
-	tracker = FileTracker()
-	view_choices(tracker.get_all_labels(), title='Existing labels', disp='negative')
+    labeler = LabelControl(imgpath)
+    labeler.check_file_tracked()
 
-	label = input("Label: ")
+    view_choices(labeler.get_all_labels(), title='Existing labels', disp='negative')
+    view_old_label(labeler.get_label())
 
-	labeler = LabelControl(imgpath)
-	payload = labeler.set_label(label)
+    label = input("Label: ")
 
-	print(payload)
+    payload = labeler.set_label(label)
+
+    print(payload)
