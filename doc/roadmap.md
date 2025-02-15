@@ -39,7 +39,7 @@ After all that, some ideas for an actual roadmap.
 ## Features dependencies
 
 ```mermaid
-graph LR;
+graph RL;
     FiT[File tracking] --> FoT[Folder tracker];
     Up[Update tracking] --> FiT;
     Cd[Check duplicates] --> FiT;
