@@ -1,3 +1,5 @@
+from time import sleep
+
 from imgFolder.controllers import LabelControl
 from imgFolder.utils import color_text
 
@@ -21,7 +23,7 @@ def view_old_label(label):
     )
 
 
-def run_label_command(imgpath):
+def run_label_image_command(imgpath):
     labeler = LabelControl(imgpath)
     labeler.check_file_tracked()
 
@@ -33,3 +35,13 @@ def run_label_command(imgpath):
     labeler.set_label(label)
 
     print({imgpath:labeler.get_label()})
+
+
+def run_track_folder_command():
+    print('.')
+    sleep(1)
+    print('.')
+    sleep(1)
+    print('.')
+    sleep(1)
+    print("Tracking folder!")

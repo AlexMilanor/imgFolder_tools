@@ -1,14 +1,15 @@
 import argparse
 
 from imgFolder.commands import (
-    run_label_command
+    run_label_image_command,
+    run_track_folder_command
 )
 
 def main(options):
     if options.command == "label_image":
-        run_label_command(options.img_path)
+        run_label_image_command(options.img_path)
     if options.command == "track_folder":
-        pass
+        run_track_folder_command()
 
 
 def set_commands():
