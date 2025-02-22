@@ -22,7 +22,7 @@ class TestFileTracker():
     def test_get_labels_01(self, mock_response):
         # Arrange
         tracker = FileTracker()
-        true = ["comida", "bebida"]
+        true = ["bebida", "comida"]
 
         # Act
         res = tracker.get_all_labels()
@@ -43,7 +43,7 @@ class TestFileTracker():
         monkeypatch.setattr(DBConn, "query_files", mock_query)
 
         tracker = FileTracker()
-        true = ["móveis", "bebida"]
+        true = ["bebida", "móveis"]
 
         # Act
         res = tracker.get_all_labels()
