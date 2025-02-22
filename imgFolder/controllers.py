@@ -11,10 +11,6 @@ class LabelControl:
         # Ask Tracker to set as the given label.
         self.tracker.set_label(self.imgpath, label)
 
-        # Return the result
-        new_label = self.tracker.get_label(self.imgpath)
-        return {self.imgpath:new_label}
-
 
     def get_label(self):
         return self.tracker.get_label(self.imgpath)

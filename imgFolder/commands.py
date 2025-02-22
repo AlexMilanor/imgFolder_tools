@@ -30,6 +30,6 @@ def run_label_command(imgpath):
 
     label = input("Label: ")
 
-    result = labeler.set_label(label)
+    labeler.set_label(label)
 
-    print(result)
+    print({imgpath:labeler.get_label()})
