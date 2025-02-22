@@ -7,7 +7,8 @@ from imgFolder.commands import (
 def main(options):
     if options.command == "label_image":
         run_label_command(options.img_path)
-
+    if options.command == "track_folder":
+        pass
 
 
 def set_commands():
@@ -22,7 +23,15 @@ def set_commands():
         dest="command"
     )
 
-    label_parser = subparsers.add_parser(
+    parse_label_image(subparsers)
+    parse_track_folder(subparsers)
+
+    return main_parser
+
+
+
+def parse_label_image(parsers):
+    label_parser = parsers.add_parser(
         name="label_image", 
         help="Give a chosen tag to a specified image."
     )
@@ -33,4 +42,9 @@ def set_commands():
         help='Path of the image to be labeled.'
     )
 
-    return main_parser
+
+def parse_track_folder(parsers):
+    track_parser = parsers.add_parser(
+        name="track_folder", 
+        help="Start tracking the image folder to manage."
+    )
