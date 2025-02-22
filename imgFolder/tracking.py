@@ -49,3 +49,4 @@ class FileTracker:
                         field='label',
                         value=label
                         )
+        self.current_files = self.db_client.query_files()
