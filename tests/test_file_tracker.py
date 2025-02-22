@@ -19,7 +19,7 @@ def mock_response(monkeypatch):
 
 class TestFileTracker():
     
-    def test_get_labels_01(self, mock_response):
+    def test_get_all_labels_01(self, mock_response):
         # Arrange
         tracker = FileTracker()
         true = ["bebida", "comida"]
@@ -31,7 +31,7 @@ class TestFileTracker():
         assert(true == res)
 
 
-    def test_get_labels_02(self, monkeypatch):
+    def test_get_all_labels_02(self, monkeypatch):
         # Arrange
         # monkey patch DBConn.query_files
         def mock_query(self):

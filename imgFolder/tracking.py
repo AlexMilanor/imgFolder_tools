@@ -9,7 +9,7 @@ class FileTracker:
         self.current_files = self.db_client.query_files()
 
 
-    def check_file_exists(self, filename):
+    def check_file_tracked(self, filename):
         exists = False
         for file in self.current_files:
             if file['file'] == filename:
@@ -30,11 +30,14 @@ class FileTracker:
         return sorted(labels)
 
 
-    def get_label(self, img_name):
+    def get_label(self, img_name: str):
+        self.check_file_tracked(img_name)
+
         label = None
         for file in self.current_files:
             if file['file'] == img_name:
-                label = file.get('label', '')
+                label = file.get('label', '')       
+
 
         return label
 
