@@ -1,9 +1,15 @@
+from time import sleep
+import os
+
 from imgFolder.db_connection import DBConn
+from imgFolder.file_management import FileManager
+
 
 class FileTracker:
     def __init__(self):
         self.folder = "."
         self.db_client = DBConn()
+        self.file_mgmt = FileManager('.')
 
         # List of dicts
         self.current_files = self.db_client.query_files()
@@ -50,3 +56,23 @@ class FileTracker:
                         value=label
                         )
         self.current_files = self.db_client.query_files()
+
+
+    def set_tracked_folder(self):
+        config_folder = '.imgfolder'
+
+        self.file_mgmt.create_folder(parent='.', folder=config_folder)
+        self.file_mgmt.create_file(
+            parent='.', 
+            folder=config_folder, 
+            file="index.txt",
+            content="Images being tracked!"
+        )
+
+        print('.')
+        sleep(1)
+        print('.')
+        sleep(1)
+        print('.')
+        sleep(1)
+        print("Tracking this folder's images.")

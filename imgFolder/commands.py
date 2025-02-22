@@ -1,6 +1,7 @@
-from time import sleep
-
-from imgFolder.controllers import LabelControl
+from imgFolder.controllers import (
+    LabelControl,
+    IndexControl
+)
 from imgFolder.utils import color_text
 
 def view_choices(choices, title="Choices", color='cyan', disp='bold'):
@@ -38,10 +39,8 @@ def run_label_image_command(imgpath):
 
 
 def run_track_folder_command():
-    print('.')
-    sleep(1)
-    print('.')
-    sleep(1)
-    print('.')
-    sleep(1)
-    print("Tracking folder!")
+    index = IndexControl()
+    try:
+        index.start_tracking_folder()
+    except Exception as e:
+        print("This folder's images are already being tracked.")

@@ -1,6 +1,5 @@
 from imgFolder.tracking import FileTracker
 
-
 class LabelControl:
     def __init__(self, imgpath):
         self.imgpath = imgpath
@@ -22,3 +21,12 @@ class LabelControl:
 
     def check_file_tracked(self):
         self.tracker.check_file_tracked(self.imgpath)
+
+
+
+class IndexControl:
+    def __init__(self):
+        self.tracker = FileTracker()
+
+    def start_tracking_folder(self):
+        self.tracker.set_tracked_folder()
