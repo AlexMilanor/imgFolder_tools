@@ -7,7 +7,7 @@ class DBConn:
         self._schema = ['file', 'label']
 
 
-    def query_files(self) -> dict:
+    def query_files(self) -> list:
         with open(self._file, 'r') as csvfile:
             reader = csv.DictReader(csvfile)
 
