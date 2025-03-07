@@ -18,12 +18,12 @@ So, lets try. Also, always nice to save this code somewhere other than my comput
 
 After all that, some ideas for an actual roadmap.
 
-- [ ] \[**Folder tracker**\] Create file to know folder is being tracked by imgFolder
+- [x] \[**Folder tracker**\] Create file to know folder is being tracked by imgFolder
 - [ ] \[**File tracking**\] Start tracking files from tracked folder
 - [ ] \[**Update tracking**\] Update database to reflect changes in tracked filed (path changes)
 - [ ] \[**Image shower**\] Show images when checking duplicates and giving labels.
 - [ ] \[**Check duplicates**\] Check duplicated images (as in, duplicated content).
-- [ ] \[**Folder management**\] Enable management of folder (moving images, creating folders, ...)
+- [x] \[**Folder management**\] Enable management of folder (moving images, creating folders, ...)
 - [ ] \[**Remove duplicates**\] Remove duplicated images.
 - [ ] \[**Organize labels**\] Organize images in folder according to their labels (creating subfolders)
 - [ ] \[**Auto classifier standard**\] Auto-classify images in labels according to standard group of labels.
