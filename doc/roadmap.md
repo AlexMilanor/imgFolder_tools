@@ -19,7 +19,7 @@ So, lets try. Also, always nice to save this code somewhere other than my comput
 After all that, some ideas for an actual roadmap.
 
 - [x] \[**Folder tracker**\] Create file to know folder is being tracked by imgFolder
-- [ ] \[**File tracking**\] Start tracking files from tracked folder
+- [x] \[**File tracking**\] Start tracking files from tracked folder
 - [ ] \[**Update tracking**\] Update database to reflect changes in tracked filed (path changes)
 - [ ] \[**Image shower**\] Show images when checking duplicates and giving labels.
 - [ ] \[**Check duplicates**\] Check duplicated images (as in, duplicated content).
@@ -40,9 +40,8 @@ After all that, some ideas for an actual roadmap.
 
 ```mermaid
 graph RL;
-    FiT[File tracking];
-    Up[Update tracking] --> FiT;
-    Cd[Check duplicates] --> FiT;
+    Up[Update tracking];
+    Cd[Check duplicates];
     Cd --> Is[Image shower];
     Rd[Remove duplicates] --> Cd;
     Ol[Organize labels];
