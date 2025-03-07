@@ -40,14 +40,12 @@ After all that, some ideas for an actual roadmap.
 
 ```mermaid
 graph RL;
-    FiT[File tracking] --> FoT[Folder tracker];
+    FiT[File tracking];
     Up[Update tracking] --> FiT;
     Cd[Check duplicates] --> FiT;
     Cd --> Is[Image shower];
     Rd[Remove duplicates] --> Cd;
-    Rd --> Fm[Folder management];
-    FiT --> Fm;
-    Ol[Organize labels] --> Fm;
+    Ol[Organize labels];
     AutoS[Auto classifier standard] --> Up;
     AutoC[Auto classifier custom] --> AutoS;
     AutoS --> Reg[ML Artifact registry];
