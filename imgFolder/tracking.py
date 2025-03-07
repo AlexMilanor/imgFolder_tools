@@ -13,10 +13,14 @@ class FileTracker:
         
         # Check if folder is tracked
         if self.is_folder_tracked():
-            # Define a DB Connection
-            self.db_client = DBConn(config.CONFIG_FOLDER)
-            # List of dicts with files in the folder
-            self.current_files = self.db_client.query_files()
+            self._init_db_connection()
+
+
+    def _init_db_connection(self):
+        # Define a DB Connection
+        self.db_client = DBConn(config.CONFIG_FOLDER)
+        # List of dicts with files in the folder
+        self.current_files = self.db_client.query_files()
 
 
     def check_file_tracked(self, filename):
@@ -67,25 +71,24 @@ class FileTracker:
 
 
     def set_tracked_folder(self):
-        self.file_mgmt.create_folder(parent='.', folder=config.CONFIG_FOLDER)
+        self.file_mgmt.create_folder(parent=self.folder, folder=config.CONFIG_FOLDER)
+
         self.file_mgmt.create_file(
-            parent='.', 
+            parent=self.folder, 
             folder=config.CONFIG_FOLDER, 
             file="index.txt",
             content="Images being tracked!"
         )
+        
         self.file_mgmt.create_file(
-            parent='.', 
+            parent=self.folder, 
             folder=config.CONFIG_FOLDER, 
-            file="db_prototype.csv",
-            content="file,label\nfile_1,label_1\nfile_2,"
+            file=config.DB_FILENAME,
+            content=f"file,label"
         )
 
+        self._init_db_connection()
+        files = self.file_mgmt.get_files(self.folder)
+        self.db_client.insert_db(files)
 
-        print('.')
-        sleep(1)
-        print('.')
-        sleep(1)
-        print('.')
-        sleep(1)
         print("Tracking this folder's images.")
