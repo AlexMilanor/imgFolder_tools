@@ -1,9 +1,11 @@
 import csv
 from copy import copy
+from pathlib import Path
 
 class DBConn:
-    def __init__(self):
-        self._file = "./data/db_prototype.csv"
+    def __init__(self, path):
+        db_path = Path(path)
+        self._file = db_path / "db_prototype.csv"
         self._schema = ['file', 'label']
 
 

@@ -3,16 +3,20 @@ import os
 
 from imgFolder.db_connection import DBConn
 from imgFolder.file_management import FileManager
+from imgFolder.utils import config
 
 
 class FileTracker:
     def __init__(self):
         self.folder = "."
-        self.db_client = DBConn()
         self.file_mgmt = FileManager('.')
-
-        # List of dicts
-        self.current_files = self.db_client.query_files()
+        
+        # Check if folder is tracked
+        if self.is_folder_tracked():
+            # Define a DB Connection
+            self.db_client = DBConn(config.CONFIG_FOLDER)
+            # List of dicts with files in the folder
+            self.current_files = self.db_client.query_files()
 
 
     def check_file_tracked(self, filename):
@@ -24,6 +28,10 @@ class FileTracker:
         if not exists:
             raise ValueError(f"File {filename} do not exists "
                               "or is not being tracked.")
+
+
+    def is_folder_tracked(self):
+        return self.file_mgmt.folder_exists(self.folder, config.CONFIG_FOLDER)
 
 
     def get_all_labels(self) -> list:
@@ -59,15 +67,20 @@ class FileTracker:
 
 
     def set_tracked_folder(self):
-        config_folder = '.imgfolder'
-
-        self.file_mgmt.create_folder(parent='.', folder=config_folder)
+        self.file_mgmt.create_folder(parent='.', folder=config.CONFIG_FOLDER)
         self.file_mgmt.create_file(
             parent='.', 
-            folder=config_folder, 
+            folder=config.CONFIG_FOLDER, 
             file="index.txt",
             content="Images being tracked!"
         )
+        self.file_mgmt.create_file(
+            parent='.', 
+            folder=config.CONFIG_FOLDER, 
+            file="db_prototype.csv",
+            content="file,label\nfile_1,label_1\nfile_2,"
+        )
+
 
         print('.')
         sleep(1)

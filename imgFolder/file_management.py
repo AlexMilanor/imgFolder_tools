@@ -17,3 +17,9 @@ class FileManager:
         filename = os.path.join(parent, folder, file)
         with open(filename, 'w') as fp:
             fp.write(content)
+
+
+    def folder_exists(self, parent, folder):
+        foldername = os.path.join(parent, folder)
+
+        return os.path.exists(foldername)
