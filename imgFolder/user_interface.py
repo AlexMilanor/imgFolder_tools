@@ -8,7 +8,7 @@ from imgFolder.commands import (
 def main(options):
     if options.command == "label_image":
         run_label_image_command(options.img_path)
-    if options.command == "track_folder":
+    if options.command == "init_folder":
         run_track_folder_command()
 
 
@@ -46,6 +46,6 @@ def parse_label_image(parsers):
 
 def parse_track_folder(parsers):
     track_parser = parsers.add_parser(
-        name="track_folder", 
-        help="Start tracking the image folder to manage."
+        name="init_folder", 
+        help="Start tracking the images from the folder to manage."
     )
