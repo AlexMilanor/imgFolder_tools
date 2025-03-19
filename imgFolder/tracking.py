@@ -95,7 +95,11 @@ class FileTracker:
         )
 
         self._init_db_connection()
-        files = self.file_mgmt.get_files(self.folder)
+        files = self.file_mgmt.get_files(
+                self.folder, 
+                subfolders=True, 
+                ext_list=config.ACCEPTED_EXTENSIONS
+                )
         self.db_client.insert_db(files)
 
         print("Tracking this folder's images.")
