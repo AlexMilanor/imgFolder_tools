@@ -20,7 +20,7 @@ After all that, some ideas for an actual roadmap.
 
 - [x] \[**Folder tracker**\] Create file to know folder is being tracked by imgFolder
 - [x] \[**File tracking**\] Start tracking files from tracked folder
-- [ ] \[**Show labels**\] Show what are the tracked files and their labels
+- [x] \[**Show labels**\] Show what are the tracked files and their labels
 - [ ] \[**Update tracking**\] Update database to reflect changes in tracked filed (path changes)
 - [ ] \[**Image shower**\] Show images when checking duplicates and giving labels.
 - [ ] \[**Check duplicates**\] Check duplicated images (as in, duplicated content).
@@ -43,12 +43,17 @@ After all that, some ideas for an actual roadmap.
 graph RL;
     Up[Update tracking];
     Cd[Check duplicates];
-    Sh[Show Labels];
-    Cd --> Is[Image shower];
-    Rd[Remove duplicates] --> Cd;
+    Is[Image shower];
+    Rd[Remove duplicates];
     Ol[Organize labels];
-    AutoS[Auto classifier standard] --> Up;
-    AutoC[Auto classifier custom] --> AutoS;
-    AutoS --> Reg[ML Artifact registry];
+    AutoS[Auto classifier standard];
+    AutoC[Auto classifier custom];
+    Reg[ML Artifact registry];
+
+    Cd --> Is;
+    Rd --> Cd;
+    AutoS --> Up;
+    AutoC --> AutoS;
+    AutoS --> Reg;
     AutoC --> Reg;
 ```
