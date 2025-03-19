@@ -41,7 +41,7 @@ def run_label_image_command(imgpath):
     labeler = LabelControl(imgpath)
     labeler.check_file_tracked()
 
-    view_list(labeler.get_all_labels(), title='Existing labels', disp='negative')
+    view_list(labeler.get_all_labels(), title='Existing labels', title_disp='negative')
     view_old_label(labeler.get_label())
 
     label = input("Label: ")
