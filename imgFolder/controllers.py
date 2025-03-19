@@ -1,9 +1,23 @@
+import os
+
 from imgFolder.tracking import FileTracker
 
 class LabelControl:
     def __init__(self, imgpath):
-        self.imgpath = imgpath
+        self.imgpath = self._adjust_imgpath(imgpath)
         self.tracker = FileTracker()
+
+
+    def _adjust_imgpath(self, imgpath):
+        if imgpath is None:
+            return imgpath
+        else:
+            path = imgpath.lstrip(os.sep)
+            root = path[:path.index(os.sep)] if os.sep in path else path
+            if root != '.':
+                return os.sep.join(['.', imgpath])
+            else:
+                return imgpath
 
 
     def set_label(self, label) -> None:    
@@ -23,7 +37,10 @@ class LabelControl:
     def get_imgs_and_labels(self) -> dict:
         all_files = self.tracker.get_imgs_and_labels()
         lista = [(file['label'], file['file']) for file in all_files]
-        return sorted(lista, key=lambda x:x[0])
+        empty_lista = [(file[0], file[1]) for file in lista if len(file[0]) == 0]
+        fill_lista = sorted([(file[0], file[1]) for file in lista if len(file[0])!=0])
+
+        return fill_lista + empty_lista
 
 
     def check_file_tracked(self) -> bool:
