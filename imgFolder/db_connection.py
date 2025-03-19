@@ -1,9 +1,13 @@
 import csv
 from copy import copy
+from pathlib import Path
+
+from imgFolder.utils import config 
 
 class DBConn:
-    def __init__(self):
-        self._file = "./data/db_prototype.csv"
+    def __init__(self, path):
+        db_path = Path(path)
+        self._file = db_path / config.DB_FILENAME
         self._schema = ['file', 'label']
 
 
@@ -55,3 +59,16 @@ class DBConn:
             for row in update_list:
                 writer.writerow(row)
 
+
+    def insert_db(
+            self,
+            uid_list: list[str]
+            ) -> None:
+
+        insert_list = [{'file':uid, 'label':None} for uid in uid_list]
+        with open(self._file, 'w') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=self._schema)
+            writer.writeheader()
+
+            for row in insert_list:
+                writer.writerow(row)
