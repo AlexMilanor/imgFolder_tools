@@ -6,20 +6,27 @@ class LabelControl:
         self.tracker = FileTracker()
 
 
-    def set_label(self, label):    
+    def set_label(self, label) -> None:    
         # Ask Tracker to set as the given label.
         self.tracker.set_label(self.imgpath, label)
 
 
-    def get_label(self):
+    def get_label(self) -> str:
         return self.tracker.get_label(self.imgpath)
 
 
-    def get_all_labels(self):
-        return self.tracker.get_all_labels()
+    def get_all_labels(self) -> list:
+        all_labels = self.tracker.get_all_labels()
+        return sorted(all_labels)
 
 
-    def check_file_tracked(self):
+    def get_imgs_and_labels(self) -> dict:
+        all_files = self.tracker.get_imgs_and_labels()
+        lista = [(file['label'], file['file']) for file in all_files]
+        return sorted(lista, key=lambda x:x[0])
+
+
+    def check_file_tracked(self) -> bool:
         self.tracker.check_file_tracked(self.imgpath)
 
 

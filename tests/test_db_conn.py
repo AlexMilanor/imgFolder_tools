@@ -19,7 +19,7 @@ class TestDBConn():
             )
 
         monkeypatch.setattr(builtins, "open", mock_csv)
-        conn = DBConn()
+        conn = DBConn('.')
 
         true = [
                 {"arquivo":"arq1", "label":"tag1", "col3":"a"},

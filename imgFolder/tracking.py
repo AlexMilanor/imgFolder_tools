@@ -24,6 +24,9 @@ class FileTracker:
 
 
     def check_file_tracked(self, filename):
+        if filename is None:
+            return False
+            
         exists = False
         for file in self.current_files:
             if file['file'] == filename:
@@ -46,6 +49,10 @@ class FileTracker:
                 labels.add(file['label'])
 
         return sorted(labels)
+
+
+    def get_imgs_and_labels(self) -> dict:
+        return self.current_files
 
 
     def get_label(self, img_name: str):
